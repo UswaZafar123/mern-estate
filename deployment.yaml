@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uswa-app
+  namespace: scd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uswa-app
+  template:
+    metadata:
+      labels:
+        app: uswa-app
+    spec:
+      containers:
+        - name: frontend
+          image: uswazafar/uswafrontend:latest
+          ports:
+            - containerPort: 5173
+
+        - name: backend
+          image: uswazafar/uswabackend:latest
+          ports:
+            - containerPort: 8000
