@@ -8,7 +8,6 @@ spec:
   selector:
     app: uswa-app
   ports:
-    - port: 80               # Exposed service port
-      targetPort: 5173       # Port inside the frontend container
-      nodePort: 30010
-      # External access via Minikube
+    - port: 80
+      targetPort: 8000   
+      nodePort: 30010    # access via http://localhost:30010
